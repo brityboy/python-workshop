@@ -11,7 +11,12 @@ def substring_old(words, substrings):
 
     The strings in the substrings list are all 3 characters long.
     '''
-    pass
+    result = []
+    for word in words:
+        for substring in substrings:
+            if word.find(substring) != -1:
+                result.append(substring)
+    return result
 
 
 def substring_new(words, substrings):
@@ -24,4 +29,11 @@ def substring_new(words, substrings):
 
     The strings in the substrings list are all 3 characters long.
     '''
-    pass
+    # in the old method, i was going through the substring list 5 times
+
+    dict = defaultdict(str)
+    for word in words:
+        for substring in substrings:
+            if word.find(substring) != -1:
+                dict[word]=substring
+    return dict.values()

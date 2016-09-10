@@ -10,7 +10,8 @@ def sum_ints(lst):
     only the ints.
     Hint: Use the isinstance function.
     '''
-    pass
+
+    return sum(elem for elem in [item for item in lst if isinstance(item, int)])
 
 
 def min_and_max(lst):
@@ -23,8 +24,17 @@ def min_and_max(lst):
 
     In the case of an empty list, return None.
     '''
-    pass
-
+    result = None
+    if len(lst) != 0:
+        abslist = map(lambda x: abs(x), lst)
+        maxvalue = max(abslist)
+        maxindex = abslist.index(maxvalue)
+        minvalue = min(abslist)
+        minindex = abslist.index(minvalue)
+        # return abslist
+        result = (lst[minindex], lst[maxindex])
+    # return maxvalue, maxindex, minvalue, minindex
+    return result
 
 def are_palindromes(words):
     '''
@@ -37,7 +47,11 @@ def are_palindromes(words):
     Hint: use the is_palindrome function that has been imported at
     the top of this file
     '''
-    pass
+    result = True
+    for word in words:
+        if word[::-1] != word:
+            result = False
+    return result
 
 
 def substring(words, substrings):
@@ -50,4 +64,9 @@ def substring(words, substrings):
 
     The strings in the substrings list are all 3 characters long.
     '''
-    pass
+    result = []
+    for word in words:
+        for substring in substrings:
+            if word.find(substring) != -1:
+                result.append(substring)
+    return result

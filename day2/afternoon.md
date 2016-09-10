@@ -40,7 +40,7 @@ Day(s) with biggest gain (0.0333): 2011-09-21
 
 1. `exchange.py`: Python file containing your script. It should get the example output above when run on the example file.
 
-2. `test_exchange.py`: A test file with at least one test function for each function you have written in `exchange.py`. 
+2. `test_exchange.py`: A test file with at least one test function for each function you have written in `exchange.py`.
 
 
 #### Extra Credit

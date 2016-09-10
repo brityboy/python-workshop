@@ -16,7 +16,7 @@ In `src/dict_exercise.py` you will find some function stubs. You should fill in 
 
 In this exercise, we're going to be taking a look at some code that's already working and figuring out how to improve it using dictionaries/sets.
 
-The code is written in an inefficient way. We'll start by timing how long it takes with the current implementation, then doing your improvement and timing it again. 
+The code is written in an inefficient way. We'll start by timing how long it takes with the current implementation, then doing your improvement and timing it again.
 
 Take a look at the example code in `src/efficiency.py`. We'll start with the first question.
 
@@ -31,13 +31,22 @@ Take a look at the example code in `src/efficiency.py`. We'll start with the fir
 
     This should give you output of how long this took to run. **Write this value down.** (You can try running it on the full Frankenstein file, but you probably don't want to wait for that).
 
+    this is what I got
+    CPU times: user 8.73 s, sys: 20 ms, total: 8.75 s
+    Wall time: 8.92 s
+
     Note: The best way to copy this into `ipython` is to copy it normally and then type `%paste` in `ipython`.
 
 2. Make your improvements to the `invalid_words` function. You will need to run `reload(efficiency)` in `ipython` to get the updated version.
 
-    Make sure you didn't change the functionality of the functions by running `nosetests test_efficiency.py`.
+    Make sure you didn't change the functionality of the functions by running `nosetests src/test_efficiency.py`.
 
     Time timing it again. Is it faster?
+
+    changed it to a set and then...
+    CPU times: user 32 ms, sys: 4 ms, total: 36 ms
+    Wall time: 36.9 ms
+    holy fucking set
 
 3. Repeat the above process for the second function, `common_characters`.
 
@@ -49,6 +58,13 @@ Take a look at the example code in `src/efficiency.py`. We'll start with the fir
 
     mystring = "".join(random.choice(string.lowercase) for i in xrange(100000))
     ```
+    from src import efficiency
+    %time common = efficiency.common_characters(mystring, 2)
+    CPU times: user 11.1 s, sys: 16 ms, total: 11.1 s
+    Wall time: 11.2 s
+
+
+
 
     For the second parameter in the function, choose a number that makes sense. If it's too small, probably all the letters will appear more than that number of times. The expected number of times a letter would appear is 100000/26 = 3846, so choose something around there.
 
@@ -58,9 +74,16 @@ Take a look at the example code in `src/efficiency.py`. We'll start with the fir
 
     Use the following code to create a large list of integers:
 
-    ```python
+    ```python.
+    import random
     mylist = [random.randrange(-1,100000) for i in xrange(100000)]
+    from src import efficiency
+    %time zerosum = efficiency.sum_to_zero(mylist)
     ```
+    %time common = efficiency.sum_to_zero(mylist)
+    CPU times: user 3min 37s, sys: 516 ms, total: 3min 37s
+    Wall time: 3min 38s
+
 
     Again, time how long it takes to run on this list before you change anything. Then make your changes and run again on the same list!
 

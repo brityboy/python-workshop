@@ -78,3 +78,15 @@ class Fraction(object):
         Return a string representation of the fraction.
         '''
         return "{0}/{1}".format(self.num, self.denom)
+
+    def __mixed__(self):
+        '''
+        Return a string representation of the fraction as
+        a mixed number.
+        '''
+        if self.num < self.denom:
+            return self._reduce()
+        else:
+            whole = self.num / self.denom
+            mixed_num = self.num % self.denom
+            return "{} {}/{}".format(whole, mixed_num, self.denom)

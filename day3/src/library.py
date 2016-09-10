@@ -1,9 +1,12 @@
+from collections import defaultdict
+
 class Library(object):
+
     '''
     A Library class.
     '''
 
-    def __init__(self, books=None):
+    def __init__(self, users=None, books=None):
         '''
         INPUT:
             - books: iterable of strs (optional)
@@ -14,6 +17,12 @@ class Library(object):
             self.books = {book: None for book in books}
         else:
             self.books = dict()
+        # added line
+        if users:
+            self.users = {user: None for user in users}
+        else:
+            self.users = defaultdict(list)
+
 
     def checkout(self, book, name):
         '''
@@ -27,6 +36,8 @@ class Library(object):
             # cannot checkout book
             return False
         self.books[book] = name
+        # added line
+        self.users[name].append(book)
         return True
 
     def checkin(self, book):
@@ -39,7 +50,12 @@ class Library(object):
         if book not in self.books or not self.books[book]:
             # not a book or already checked in
             return False
+        name = self.book_holder(book)
+        del self.users[name][self.users[name].index(book)]
         self.books[book] = None
+
+        # added line
+
         return True
 
     def book_holder(self, book):
@@ -91,3 +107,12 @@ class Library(object):
         Return the number of books owned by the library.
         '''
         return len(self.all_books())
+
+    def books_checkedout(self, name):
+        '''
+        INPUT:
+            - name: str
+        Return the list of books checked out by the given person.
+        '''
+        # added line
+        return self.users[name]

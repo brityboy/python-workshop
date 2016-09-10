@@ -5,7 +5,7 @@ This exercise is designed to practice all of the things we've learned this week,
 * File I/O
 * strings
 * lists
-* dictionaries
+* dictionaries//
 * Classes
 
 There is some weather data in [data](data).
@@ -91,7 +91,7 @@ You'll see that at multiple points it says to use an `OrderedDict` instead of a 
     * You may want to add additional helper functions to this class.
     * You will need to write tests for these since none are given!
     * The `__str__` method will be useful to have implemented since it will help you validate your results.
-    
+
     Here's some example code that you should be able to run once you have this implemented (don't worry if you can't get the output as nicely formatted):
 
     ```python
@@ -122,7 +122,7 @@ You'll see that at multiple points it says to use an `OrderedDict` instead of a 
     * `coldest_city_per_month`
     * `rainiest_city_per_month`
     * `days_rain_city_per_month`
-    
+
     Each one of these methods creates a dictionary (or preferably an `OrderedDict`) with the key being the month and the value being a tuple of the city and associated value for that month.
 
     ***Challenge:*** Can you do this without duplicating code? Can you have a single helper function that all four of these functions can use? *Hint: Use python's `getattr` function.*

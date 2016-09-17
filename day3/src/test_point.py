@@ -60,11 +60,13 @@ def test_dist():
     expected = 5.0
     n.assert_almost_equal(expected, actual, msg=get_message(expected, actual))
 
+
 def test_perimiter():
     triangle = Triangle(0, 0, 5, 0, 0, 5)
     actual = triangle.perimiter()
     expected = 17.071067811865476
     n.assert_almost_equal(expected, actual, msg=get_message(expected, actual))
+
 
 def test_area():
     triangle = Triangle(0, 0, 5, 0, 0, 5)

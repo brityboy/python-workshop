@@ -1,3 +1,5 @@
+"""This module has classes that work with Points and Triangles"""
+
 from math import sqrt
 
 
@@ -44,7 +46,8 @@ class Point(object):
         '''
         INPUT:
             - other: Point
-        Return a new Point which subtracts the x and y coordinates of the second
+        Return a new Point which subtracts
+        the x and y coordinates of the second
         point from the first.
         '''
         return Point(self.x-other.x, self.y-other.y)
@@ -62,11 +65,12 @@ class Point(object):
         '''
         Return the length of the vector (squareroot of the two values squared)
         '''
-        return float((self.x ** 2.0 + self.y ** 2.0) ** .5)
+        return sqrt(self.x ** 2.0 + self.y ** 2.0)
 
     def dist(self, other):
         '''
-        Return the distance (float) between this point and the other point given.
+        Return the distance (float) between this
+        point and the other point given.
 
         Hint: You should use subtract and length!
         '''
@@ -78,11 +82,20 @@ class Triangle(object):
         self.vertex1 = Point(a, b)
         self.vertex2 = Point(c, d)
         self.vertex3 = Point(e, f)
+
+    def __repr__(self):
+        lineformat = 'Triangle: {}, {}, {}'
+        return lineformat.format(self.vertex1, self.vertex2, self.vertex3)
+
     def perimiter(self):
-        return Point.dist(self.vertex1, self.vertex2)+Point.dist(self.vertex1, self.vertex3)+Point.dist(self.vertex3, self.vertex2)
+        sidea = Point.dist(self.vertex1, self.vertex2)
+        sideb = Point.dist(self.vertex3, self.vertex2)
+        sidec = Point.dist(self.vertex3, self.vertex1)
+        return sidea+sideb+sidec
+
     def area(self):
         sidea = Point.dist(self.vertex1, self.vertex2)
         sideb = Point.dist(self.vertex3, self.vertex2)
         sidec = Point.dist(self.vertex3, self.vertex1)
         s = float((sidea+sideb+sidec)/2)
-        return float((s*(s-sidea)*(s-sideb)*(s-sidec))**.5)
+        return sqrt(s*(s-sidea)*(s-sideb)*(s-sidec))

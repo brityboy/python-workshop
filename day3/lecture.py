@@ -185,3 +185,8 @@ print 'finished foo again'
 # w for where we area
 # the variables - to see the variable values
 # q for quit
+
+# python
+# uppercamel case = DeckCard
+# camelcase = deckCard
+# snakecase = deck_card
